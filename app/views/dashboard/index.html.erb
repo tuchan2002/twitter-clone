@@ -1,0 +1,12 @@
+<div class="col-7">
+  <%= render "shared/tweet_form" %>
+
+  <ul>
+    <% Tweet.find_each do |tweet| %>
+      <li><%= tweet.body %></li>
+    <% end %>
+  </ul>
+</div>
+<div class="col">
+  Column
+</div>
