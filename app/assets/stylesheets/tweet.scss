@@ -1,0 +1,6 @@
+.tweet {
+  transition: all linear 0.15s;
+  &:hover {
+    background-color: $gray-200;
+  }
+}

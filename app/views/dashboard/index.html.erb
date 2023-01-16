@@ -1,11 +1,11 @@
 <div class="col-7">
-  <%= render "shared/tweet_form" %>
+  <div class="mb-3">
+    <%= render "shared/tweet_form" %>
+  </div>
 
-  <ul>
-    <% Tweet.find_each do |tweet| %>
-      <li><%= tweet.body %></li>
-    <% end %>
-  </ul>
+  <% Tweet.order(created_at: :desc).each do |tweet| %>
+    <%= render "tweets/tweet", tweet: tweet %>
+  <% end %>
 </div>
 <div class="col">
   Column
