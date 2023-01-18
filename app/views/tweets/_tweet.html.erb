@@ -1,8 +1,40 @@
-<div class="tweet py-3 px-4">
-  <% if (Time.zone.now - tweet.created_at) > 1.day %>
-    <p>@<%= tweet.user.username %>・<%= tweet.created_at.strftime("%b %-d") %></p>
-  <% else %>
-    <p>@<%= tweet.user.username %>・<%= time_ago_in_words(tweet.created_at) %></p>
-  <% end %>
-  <p class="mb-0"><%= tweet.body %></p>
+<div class="tweet p-3 d-flex gap-3">
+  <%= image_tag tweet.user.avatar, size: "48x48", class: "rounded-circle" %>
+  <div class="flex-grow-1">
+    <p class="mb-1"><span class="fw-bolder"><%= tweet.user.display_name %></span> <span class="text-secondary">@<%= tweet.user.username %>・<%= format_created_at(tweet) %></span></p>
+    <p class="mb-2"><%= tweet.body %></p>
+
+    <div class="d-flex justify-content-between tweet-action">
+      <div>
+        <%= link_to root_path, class: "d-flex align-items-center gap-2" do %>
+          <i class="bi bi-graph-up"></i>
+          Views
+        <% end %>
+      </div>
+      <div>
+        <%= link_to root_path, class: "d-flex align-items-center gap-2" do %>
+          <i class="bi bi-chat"></i>
+          Replies
+        <% end %>
+      </div>
+      <div>
+        <%= link_to root_path, class: "d-flex align-items-center gap-2" do %>
+          <i class="bi bi-repeat"></i>
+          Retweets
+        <% end %>
+      </div>
+      <div>
+        <%= link_to root_path, class: "d-flex align-items-center gap-2" do %>
+          <i class="bi bi-heart"></i>
+          Likes
+        <% end %>
+      </div>
+      <div>
+        <%= link_to root_path, class: "d-flex align-items-center gap-2" do %>
+          <i class="bi bi-bookmark"></i>
+          Bookmark
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

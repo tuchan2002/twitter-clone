@@ -3,4 +3,14 @@
   &:hover {
     background-color: $gray-200;
   }
+  &-action {
+    a {
+      text-decoration: none;
+      color: #000;
+      transition: all linear 0.15s;
+      &:hover {
+        color: #1da1f2;
+      }
+    }
+  }
 }
