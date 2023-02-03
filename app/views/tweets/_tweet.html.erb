@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-between tweet-action">
       <div>
         <%= link_to root_path, class: "d-flex align-items-center gap-2" do %>
-          <i class="bi bi-graph-up"></i>
+          <i class="bi bi-bar-chart"></i>
           Views
         <% end %>
       </div>
@@ -24,9 +24,9 @@
         <% end %>
       </div>
       <div>
-        <%= link_to root_path, class: "d-flex align-items-center gap-2" do %>
+        <%= link_to tweet_likes_path(tweet), method: :post, class: "d-flex align-items-center gap-2" do %>
           <i class="bi bi-heart"></i>
-          Likes
+          <%= tweet.likes.size %>
         <% end %>
       </div>
       <div>
